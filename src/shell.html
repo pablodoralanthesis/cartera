@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mi cartera — panel</title>
+<script>try{if(localStorage.getItem('carteraTheme')==='light')document.documentElement.dataset.theme='light'}catch(e){}</script>
+<style>/*STYLE*/</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600;700&display=swap">
+</head><body>
+<aside class="rail" aria-label="Navegación"></aside>
+<main>
+
+<section class="view" id="v-dashboard">
+ <div class="page-head"><div><h1 id="greet"></h1><p class="js-today"></p></div><div class="status" id="status"></div></div>
+ <div id="kpiTop"></div>
+ <div class="dash">
+  <div class="dash-left">
+   <div class="dash-r1">
+    <div class="card"><div class="lbl-row"><span class="lbl">Desde la última actualización</span><a class="more" style="margin:0" href="#/proyeccion">Ver proyección →</a></div><p class="brief" id="brief"></p><div class="briefrow" id="briefRow"></div></div>
+    <div class="card"><a class="lbl-row" href="#/daily"><span class="lbl gold">Destacado del día</span><span>→</span></a><div id="standMini"></div></div>
+   </div>
+   <div class="dash-r2">
+    <div class="card"><span class="lbl">Estado de la cartera</span><div id="mood"></div><a class="more" href="#/portfolio" id="moodMore"></a></div>
+    <div class="card"><span class="lbl">Tu cartera</span><div id="portCard" style="margin-top:20px"></div></div>
+   </div>
+   <div class="card" id="dcaCard"></div>
+   <!--SEG:s-hoy-->
+  </div>
+  <div class="card newscard"><div class="ninner"><span class="lbl">Noticias de tus activos</span><div class="news" id="newsList" style="margin-top:10px"></div><a class="more" href="#/daily">Movimientos de hoy →</a></div></div>
+ </div>
+</section>
+
+<section class="view" id="v-portfolio" hidden>
+ <div class="page-head"><div><h1>Cartera</h1><p>Tus posiciones y su tendencia reciente.</p></div></div>
+ <!--SEG:s-posiciones-->
+ <!--SEG:s-reparto-->
+</section>
+
+<section class="view" id="v-daily" hidden>
+ <div class="page-head"><div><h1>Edición diaria</h1><p class="js-today"></p></div></div>
+ <div class="tabs" id="dailyTabs"></div>
+ <div id="dailyBody"></div>
+</section>
+
+<section class="view" id="v-asset" hidden><div id="assetBody"></div></section>
+
+<section class="view" id="v-proyeccion" hidden>
+ <div class="page-head"><div><h1>Proyección</h1><p>Escenario a largo plazo con tus aportaciones.</p></div></div>
+ <!--SEG:s-proyeccion-->
+ <!--SEG:s-compuesto-->
+</section>
+
+<section class="view" id="v-extracto" hidden>
+ <div class="page-head"><div><h1>Extracto eToro</h1><p>Movimientos, flujos mensuales y resultado.</p></div></div>
+ <!--SEG:s-flujos-->
+ <!--SEG:s-extracto-->
+</section>
+
+</main>
+<div id="searchOverlay" hidden><div class="sbox" role="dialog" aria-label="Buscar"><div class="phead" id="palHead"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="text" id="searchInput" placeholder="Buscar páginas, acciones y activos…" autocomplete="off" spellcheck="false" aria-label="Buscar"><button type="button" class="pesc" data-act="closeSearch" aria-label="Cerrar">Esc</button></div><div class="sres" id="searchRes"></div><div id="addForm" hidden></div></div></div>
+<div id="addOverlay" hidden><div class="adlg" role="dialog" aria-label="Añadir activo">
+ <div class="adhead"><h2>Añadir activo</h2><span class="muted" id="addCount"></span><button type="button" class="adx" data-act="addClose" aria-label="Cerrar">✕</button></div>
+ <div id="addMain">
+  <label class="adsearch"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input type="text" id="addQ" placeholder="Ticker o empresa" autocomplete="off" spellcheck="false" aria-label="Buscar activo"></label>
+  <p class="muted adhint">Busca cualquier acción, ETF, fondo, índice, cripto o divisa por ticker o por nombre, como <b>«VWCE»</b> o <b>«Nestlé»</b>.</p>
+  <div id="addList"></div>
+ </div>
+ <div id="addForm2" hidden></div>
+</div></div>
+<script>/*JS*/</script></body></html>
